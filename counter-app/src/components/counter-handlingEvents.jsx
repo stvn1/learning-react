@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+class Counter3 extends Component {
   state = {
     count: 0,
     tags: ["tag1", "tag2", "tag3"]
@@ -11,12 +11,38 @@ class Counter extends Component {
     fontSize: 50,
     fontweight: "bold"
   };
+  // constructor() {
+  //   // Must call super constructor in derived class
+  //   // before accessing 'this' or returning from derived
+  //   // constructor
+  //   // The super keyword is used to access and call
+  //   // functions on an object's parent.
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  //   console.log("Constructor", this);
+  // }
 
+  // handleIncrement() {
+  //   console.log("Increment clicked!", this);
+  //   // obj.metho();
+  //   //functions();
+  // }
+  // Or we can use an arrow function
+  handleIncrement = () => {
+    console.log("Increment clicked!", this);
+    // obj.metho();
+    //functions();
+  };
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         <ul>
           {this.state.tags.map(tag => (
             <li key={tag}>{tag}</li>
@@ -50,4 +76,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default Counter3;

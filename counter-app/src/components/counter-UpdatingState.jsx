@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+class Counter3 extends Component {
   state = {
     count: 0,
     tags: ["tag1", "tag2", "tag3"]
@@ -12,24 +12,23 @@ class Counter extends Component {
     fontweight: "bold"
   };
 
+  handleIncrement = () => {
+    console.log("Increment clicked!", this);
+    this.setState({ count: this.state.count + 1 });
+    // obj.metho();
+    //functions();
+  };
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-        <ul>
-          {this.state.tags.map(tag => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </div>
-
-      /*
-      <React.Fragment>
-        <h1>Hello world!</h1>
-        <button>Increment</button>
-      </React.Fragment>
-      */
     );
   }
 
@@ -50,4 +49,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default Counter3;
